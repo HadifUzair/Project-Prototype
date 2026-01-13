@@ -1,0 +1,464 @@
+[
+  {
+    "id": 1,
+    "keyword": "SAYA",
+    "translation_ms": "Saya",
+    "images": ["static/signs/images/saya.jpg"],
+    "videos": ["static/signs/videos/saya.mp4"]
+  },
+  {
+    "id": 2,
+    "keyword": "ANDA",
+    "translation_ms": "Anda / Awak",
+    "images": ["static/signs/images/anda.jpg"],
+    "videos": ["static/signs/videos/anda.mp4"]
+  },
+  {
+    "id": 3,
+    "keyword": "HAI/HELLO",
+    "translation_ms": "Hai / Hello",
+    "images": ["static/signs/images/hello.jpg"],
+    "videos": ["static/signs/videos/hello.mp4"]
+  },
+  {
+    "id": 4,
+    "keyword": "APA KHABAR",
+    "translation_ms": "Apa Khabar",
+    "images": ["static/signs/images/apakhabar.jpg"],
+    "videos": ["static/signs/videos/apakhabar.mp4"]
+  },
+  {
+    "id": 5,
+    "keyword": "TERIMA KASIH",
+    "translation_ms": "Terima Kasih",
+    "images": ["static/signs/images/terima_kasih.jpg"],
+    "videos": ["static/signs/videos/terima_kasih.mp4"]
+  },
+  {
+    "id": 6,
+    "keyword": "SAMA-SAMA",
+    "translation_ms": "Sama-sama",
+    "images": ["static/signs/images/sama_sama.jpg"],
+    "videos": ["static/signs/videos/sama_sama.mp4"]
+  },
+  {
+    "id": 7,
+    "keyword": "MAAF",
+    "translation_ms": "Maaf",
+    "images": ["static/signs/images/maaf.jpg"],
+    "videos": ["static/signs/videos/maaf.mp4"]
+  },
+  {
+    "id": 8,
+    "keyword": "KELAS",
+    "translation_ms": "Kelas",
+    "images": ["static/signs/images/kelas.jpg"],
+    "videos": ["static/signs/videos/kelas.mp4"]
+  },
+  {
+    "id": 9,
+    "keyword": "TOLONG",
+    "translation_ms": "Tolong / Bantu",
+    "images": ["static/signs/images/tolong.jpg"],
+    "videos": ["static/signs/videos/tolong.mp4"]
+  },
+  {
+    "id": 10,
+    "keyword": "NAMA",
+    "translation_ms": "Nama",
+    "images": ["static/signs/images/nama.jpg"],
+    "videos": ["static/signs/videos/nama.mp4"]
+  },
+  {
+    "id": 11,
+    "keyword": "DARI",
+    "translation_ms": "Dari / Daripada",
+    "images": ["static/signs/images/dari.jpg"],
+    "videos": ["static/signs/videos/dari.mp4"]
+  },
+  {
+    "id": 12,
+    "keyword": "MANA",
+    "translation_ms": "Di mana / Mana",
+    "images": ["static/signs/images/mana.jpg"],
+    "videos": ["static/signs/videos/mana.mp4"]
+  },
+  {
+    "id": 13,
+    "keyword": "TANDAS",
+    "translation_ms": "Tandas / Bilik Air",
+    "images": ["static/signs/images/tandas.jpg"],
+    "videos": ["static/signs/videos/tandas.mp4"]
+  },
+  {
+    "id": 14,
+    "keyword": "WAKTU",
+    "translation_ms": "Waktu / Pukul / Masa",
+    "images": ["static/signs/images/waktu.jpg"],
+    "videos": ["static/signs/videos/waktu.mp4"]
+  },
+  {
+    "id": 15,
+    "keyword": "APA",
+    "translation_ms": "Apa",
+    "images": ["static/signs/images/apa.jpg"],
+    "videos": ["static/signs/videos/apa.mp4"]
+  },
+  {
+    "id": 16,
+    "keyword": "MINTA MAAF",
+    "translation_ms": "Minta Maaf",
+    "images": ["static/signs/images/mintamaaf.jpg"],
+    "videos": ["static/signs/videos/mintamaaf.mp4"]
+  },
+  {
+    "id": 17,
+    "keyword": "FAHAM",
+    "translation_ms": "Faham / Mengerti",
+    "images": ["static/signs/images/faham.jpg"],
+    "videos": ["static/signs/videos/faham.mp4"]
+  },
+  {
+    "id": 18,
+    "keyword": "TIDAK",
+    "translation_ms": "Tidak",
+    "images": ["static/signs/images/tidak.jpg"],
+    "videos": ["static/signs/videos/tidak.mp4"]
+  },
+  {
+    "id": 19,
+    "keyword": "SEKARANG",
+    "translation_ms": "Sekarang",
+    "images": ["static/signs/images/sekarang.jpg"],
+    "videos": ["static/signs/videos/sekarang.mp4"]
+  },
+  {
+    "id": 20,
+    "keyword": "JAGA",
+    "translation_ms": "Jaga",
+    "images": ["static/signs/images/jaga.jpg"],
+    "videos": ["static/signs/videos/jaga.mp4"]
+  },
+  {
+    "id": 21,
+    "keyword": "SELAMAT JALAN",
+    "translation_ms": "Selamat Jalan",
+    "images": ["static/signs/images/selamatjalan.jpg"],
+    "videos": ["static/signs/videos/selamatjalan.mp4"]
+  },
+  {
+    "id": 22,
+    "keyword": "SELAMAT HARI JADI",
+    "translation_ms": "Selamat Hari Jadi",
+    "images": ["static/signs/images/slmt_hari_jadi.jpg"],
+    "videos": ["static/signs/videos/slmt_hari_jadi.mp4"]
+  },
+  {
+    "id": 23,
+    "keyword": "SAYANG",
+    "translation_ms": "Sayang",
+    "images": ["static/signs/images/sayang.jpg"],
+    "videos": ["static/signs/videos/sayang.mp4"]
+  },
+  {
+    "id": 24,
+    "keyword": "MAKAN",
+    "translation_ms": "Makan",
+    "images": ["static/signs/images/makan.jpg"],
+    "videos": ["static/signs/videos/makan.mp4"]
+  },
+  {
+    "id": 25,
+    "keyword": "MINUM",
+    "translation_ms": "Minum",
+    "images": ["static/signs/images/minum.jpg"],
+    "videos": ["static/signs/videos/minum.mp4"]
+  },
+  {
+    "id": 26,
+    "keyword": "HUJAN",
+    "translation_ms": "Hujan",
+    "images": ["static/signs/images/hujan.jpg"],
+    "videos": ["static/signs/videos/hujan.mp4"]
+  },
+  {
+    "id": 27,
+    "keyword": "ULANG",
+    "translation_ms": "Ulang / Ulangi",
+    "images": ["static/signs/images/ulang.jpg"],
+    "videos": ["static/signs/videos/ulang.mp4"]
+  },
+  {
+    "id": 28,
+    "keyword": "TUNGGU",
+    "translation_ms": "Tunggu / Sebentar",
+    "images": ["static/signs/images/tunggu.jpg"],
+    "videos": ["static/signs/videos/tunggu.mp4"]
+  },
+  {
+    "id": 29,
+    "keyword": "CUBA",
+    "translation_ms": "Cuba / Berusaha",
+    "images": ["static/signs/images/cuba.jpg"],
+    "videos": ["static/signs/videos/cuba.mp4"]
+  },
+  {
+    "id": 30,
+    "keyword": "MESYUARAT",
+    "translation_ms": "Mesyuarat / Perjumpaan",
+    "images": ["static/signs/images/mesyuarat.jpg"],
+    "videos": ["static/signs/videos/mesyuarat.mp4"]
+  },
+  {
+    "id": 31,
+    "keyword": "HARI INI",
+    "translation_ms": "Hari Ini",
+    "images": ["static/signs/images/hari_ini.jpg"],
+    "videos": ["static/signs/videos/hari_ini.mp4"]
+  },
+  {
+    "id": 32,
+    "keyword": "ESOK",
+    "translation_ms": "Esok",
+    "images": ["static/signs/images/esok.jpg"],
+    "videos": ["static/signs/videos/esok.mp4"]
+  },
+  {
+    "id": 33,
+    "keyword": "SUSAH",
+    "translation_ms": "Susah / Sukar",
+    "images": ["static/signs/images/susah.jpg"],
+    "videos": ["static/signs/videos/susah.mp4"]
+  },
+  {
+    "id": 34,
+    "keyword": "BILIK",
+    "translation_ms": "Bilik / Ruang",
+    "images": ["static/signs/images/bilik.jpg"],
+    "videos": ["static/signs/videos/bilik.mp4"]
+  },
+  {
+    "id": 35,
+    "keyword": "KECEMASAN",
+    "translation_ms": "Kecemasan",
+    "images": ["static/signs/images/kecemasan.jpg"],
+    "videos": ["static/signs/videos/kecemasan.mp4"]
+  },
+  {
+    "id": 36,
+    "keyword": "SAKIT",
+    "translation_ms": "Sakit",
+    "images": ["static/signs/images/sakit.jpg"],
+    "videos": ["static/signs/videos/sakit.mp4"]
+  },
+  {
+    "id": 37,
+    "keyword": "PANGGIL",
+    "translation_ms": "Panggil",
+    "images": ["static/signs/images/panggil.jpg"],
+    "videos": ["static/signs/videos/panggil.mp4"]
+  },
+  {
+    "id": 38,
+    "keyword": "POLIS",
+    "translation_ms": "Polis",
+    "images": ["static/signs/images/polis.jpg"],
+    "videos": ["static/signs/videos/polis.mp4"]
+  },
+  {
+    "id": 39,
+    "keyword": "AMBULANS",
+    "translation_ms": "Ambulans",
+    "images": ["static/signs/images/ambulans.jpg"],
+    "videos": ["static/signs/videos/ambulans.mp4"]
+  },
+  {
+    "id": 40,
+    "keyword": "BAHAYA",
+    "translation_ms": "Bahaya",
+    "images": ["static/signs/images/bahaya.jpg"],
+    "videos": ["static/signs/videos/bahaya.mp4"]
+  },
+  {
+    "id": 41,
+    "keyword": "MAHU",
+    "translation_ms": "Mahu / Hendak",
+    "images": ["static/signs/images/mahu.jpg"],
+    "videos": ["static/signs/videos/mahu.mp4"]
+  },
+  {
+    "id": 42,
+    "keyword": "BERHATI-HATI",
+    "translation_ms": "Berhati-hati / Awas",
+    "images": ["static/signs/images/berhati_hati.jpg"],
+    "videos": ["static/signs/videos/berhati_hati.mp4"]
+  },
+  {
+    "id": 43,
+    "keyword": "BERLARI",
+    "translation_ms": "Berlari",
+    "images": ["static/signs/images/berlari.jpg"],
+    "videos": ["static/signs/videos/berlari.mp4"]
+  },
+  {
+    "id": 44,
+    "keyword": "BINCANG",
+    "translation_ms": "Bincang / Berunding",
+    "images": ["static/signs/images/bincang.jpg"],
+    "videos": ["static/signs/videos/bincang.mp4"]
+  },
+  {
+    "id": 45,
+    "keyword": "SENYAP",
+    "translation_ms": "Senyap / Diam",
+    "images": ["static/signs/images/senyap.jpg"],
+    "videos": ["static/signs/videos/senyap.mp4"]
+  },
+  {
+    "id": 46,
+    "keyword": "BUANG",
+    "translation_ms": "Buang / Campak",
+    "images": ["static/signs/images/buang.jpg"],
+    "videos": ["static/signs/videos/buang.mp4"]
+  },
+  {
+    "id": 47,
+    "keyword": "CUCI",
+    "translation_ms": "Cuci",
+    "images": ["static/signs/images/cuci.jpg"],
+    "videos": ["static/signs/videos/cuci.mp4"]
+  },
+  {
+    "id": 48,
+    "keyword": "DENGAR",
+    "translation_ms": "Dengar / Mendengar",
+    "images": ["static/signs/images/dengar.jpg"],
+    "videos": ["static/signs/videos/dengar.mp4"]
+  },
+  {
+    "id": 49,
+    "keyword": "GUNA",
+    "translation_ms": "Guna / Menggunakan",
+    "images": ["static/signs/images/guna.jpg"],
+    "videos": ["static/signs/videos/guna.mp4"]
+  },
+  {
+    "id": 50,
+    "keyword": "JEMPUT",
+    "translation_ms": "Jemput / Ajak",
+    "images": ["static/signs/images/jemput.jpg"],
+    "videos": ["static/signs/videos/jemput.mp4"]
+  },
+  {
+    "id": 51,
+    "keyword": "PANDU",
+    "translation_ms": "Pandu / Memandu / Bawa",
+    "images": ["static/signs/images/pandu.jpg"],
+    "videos": ["static/signs/videos/pandu.mp4"]
+  },
+  {
+    "id": 52,
+    "keyword": "CANTIK",
+    "translation_ms": "Cantik / Indah",
+    "images": ["static/signs/images/cantik.jpg"],
+    "videos": ["static/signs/videos/cantik.mp4"]
+  },
+  {
+    "id": 53,
+    "keyword": "DUDUK",
+    "translation_ms": "Duduk",
+    "images": ["static/signs/images/duduk.jpg"],
+    "videos": ["static/signs/videos/duduk.mp4"]
+  },
+  {
+    "id": 54,
+    "keyword": "KACAK",
+    "translation_ms": "Kacak / Segak",
+    "images": ["static/signs/images/kacak.jpg"],
+    "videos": ["static/signs/videos/kacak.mp4"]
+  },
+  {
+    "id": 55,
+    "keyword": "LAPAR",
+    "translation_ms": "Lapar",
+    "images": ["static/signs/images/lapar.jpg"],
+    "videos": ["static/signs/videos/lapar.mp4"]
+  },
+  {
+    "id": 56,
+    "keyword": "SEDAP",
+    "translation_ms": "Sedap / Lazat",
+    "images": ["static/signs/images/sedap.jpg"],
+    "videos": ["static/signs/videos/sedap.mp4"]
+  },
+  {
+    "id": 57,
+    "keyword": "TAKUT",
+    "translation_ms": "Takut / Gerun",
+    "images": ["static/signs/images/takut.jpg"],
+    "videos": ["static/signs/videos/takut.mp4"]
+  },
+  {
+    "id": 58,
+    "keyword": "TONTON",
+    "translation_ms": "Tonton / Menonton",
+    "images": ["static/signs/images/tonton.jpg"],
+    "videos": ["static/signs/videos/tonton.mp4"]
+  },
+  {
+    "id": 59,
+    "keyword": "DEMAM",
+    "translation_ms": "Demam",
+    "images": ["static/signs/images/demam.jpg"],
+    "videos": ["static/signs/videos/demam.mp4"]
+  },
+  {
+    "id": 60,
+    "keyword": "SAKIT KEPALA",
+    "translation_ms": "Sakit Kepala",
+    "images": ["static/signs/images/sakit_kepala.jpg"],
+    "videos": ["static/signs/videos/sakit_kepala.mp4"]
+  },
+  {
+    "id": 61,
+    "keyword": "SAKIT PERUT",
+    "translation_ms": "Sakit Perut",
+    "images": ["static/signs/images/sakit_perut.jpg"],
+    "videos": ["static/signs/videos/sakit_perut.mp4"]
+  },
+  {
+    "id": 62,
+    "keyword": "TIDAK FAHAM",
+    "translation_ms": "Tidak Faham",
+    "images": ["static/signs/images/tidak_faham.jpg"],
+    "videos": ["static/signs/videos/tidak_faham.mp4"]
+  },
+  {
+    "id": 63,
+    "keyword": "PERGI",
+    "translation_ms": "Pergi",
+    "images": ["static/signs/images/pergi.jpg"],
+    "videos": ["static/signs/videos/pergi.mp4"]
+  },
+  {
+    "id": 64,
+    "keyword": "MARI",
+    "translation_ms": "Mari",
+    "images": ["static/signs/images/mari.jpg"],
+    "videos": ["static/signs/videos/mari.mp4"]
+  },
+  {
+    "id": 65,
+    "keyword": "BOLEH",
+    "translation_ms": "Boleh",
+    "images": ["static/signs/images/boleh.jpg"],
+    "videos": ["static/signs/videos/boleh.mp4"]
+  },
+  {
+    "id": 66,
+    "keyword": "TIDAK BOLEH",
+    "translation_ms": "Tidak Boleh",
+    "images": ["static/signs/images/tidak_boleh.jpg"],
+    "videos": ["static/signs/videos/tidak_boleh.mp4"]
+  }
+]

@@ -1,0 +1,2435 @@
+index.html
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BIM Buddy - Malaysian Sign Language Translator</title>
+
+
+
+    <!-- Fonts & Icons -->
+
+    <link
+
+      rel="stylesheet"
+
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+
+
+    <!-- Tailwind CSS -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+    <style>
+
+      body {
+
+        font-family: "Fredoka", sans-serif;
+
+        background-color: #fef3c7; /* yellow-50 */
+
+        margin: 0;
+
+        padding: 0;
+
+        overflow-x: hidden;
+
+      }
+
+
+
+      /* Custom animations */
+
+      @keyframes fadeIn {
+
+        from {
+
+          opacity: 0;
+
+          transform: translateY(10px);
+
+        }
+
+        to {
+
+          opacity: 1;
+
+          transform: translateY(0);
+
+        }
+
+      }
+
+
+
+      @keyframes pulse {
+
+        0%,
+
+        100% {
+
+          opacity: 1;
+
+        }
+
+        50% {
+
+          opacity: 0.5;
+
+        }
+
+      }
+
+
+
+      @keyframes bounce {
+
+        0%,
+
+        100% {
+
+          transform: translateY(0);
+
+        }
+
+        50% {
+
+          transform: translateY(-10px);
+
+        }
+
+      }
+
+
+
+      @keyframes spin {
+
+        0% {
+
+          transform: rotate(0deg);
+
+        }
+
+        100% {
+
+          transform: rotate(360deg);
+
+        }
+
+      }
+
+
+
+      .animate-fadeIn {
+
+        animation: fadeIn 0.3s ease-out;
+
+      }
+
+
+
+      .animate-pulse {
+
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+      }
+
+
+
+      .animate-bounce {
+
+        animation: bounce 1s infinite;
+
+      }
+
+
+
+      .animate-spin {
+
+        animation: spin 1s linear infinite;
+
+      }
+
+
+
+      /* Hide sections */
+
+      .hidden-section {
+
+        display: none !important;
+
+      }
+
+
+
+      /* Custom scrollbar */
+
+      ::-webkit-scrollbar {
+
+        width: 8px;
+
+      }
+
+
+
+      ::-webkit-scrollbar-track {
+
+        background: #fef3c7;
+
+      }
+
+
+
+      ::-webkit-scrollbar-thumb {
+
+        background: #fbbf24;
+
+        border-radius: 4px;
+
+      }
+
+
+
+      ::-webkit-scrollbar-thumb:hover {
+
+        background: #f59e0b;
+
+      }
+
+
+
+      /* Textarea scrollbar */
+
+      textarea::-webkit-scrollbar {
+
+        width: 6px;
+
+      }
+
+
+
+      textarea::-webkit-scrollbar-track {
+
+        background: transparent;
+
+      }
+
+
+
+      textarea::-webkit-scrollbar-thumb {
+
+        background-color: rgba(251, 191, 36, 0.3);
+
+        border-radius: 3px;
+
+      }
+
+
+
+      /* Custom checkbox */
+
+      .checkbox-container {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        cursor: pointer;
+
+      }
+
+
+
+      .custom-checkbox {
+
+        width: 20px;
+
+        height: 20px;
+
+        border: 2px solid #fbbf24;
+
+        border-radius: 4px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+      }
+
+
+
+      .custom-checkbox.checked {
+
+        background-color: #fbbf24;
+
+      }
+
+
+
+      .custom-checkbox.checked::after {
+
+        content: "✓";
+
+        color: white;
+
+        font-weight: bold;
+
+      }
+
+    </style>
+
+  </head>
+
+
+
+  <body class="bg-yellow-50">
+
+    <!-- App Container -->
+
+    <div id="app" class="w-full min-h-screen">
+
+      <!-- Landing Page -->
+
+      <div
+
+        id="landing-page"
+
+        class="w-full h-screen bg-gradient-to-br from-yellow-400 to-yellow-500 flex flex-col items-center justify-center cursor-pointer transition-all duration-500 hover:from-yellow-300 hover:to-yellow-400"
+
+      >
+
+        <div class="text-center space-y-8">
+
+          <h1
+
+            class="text-7xl md:text-9xl font-bold text-white tracking-tight drop-shadow-2xl animate-pulse"
+
+          >
+
+            BIM BUDDY
+
+          </h1>
+
+          <div
+
+            class="text-white/90 text-2xl md:text-3xl font-semibold drop-shadow-lg"
+
+          >
+
+            Malaysian Sign Language Translator
+
+          </div>
+
+          <div class="pt-8">
+
+            <div
+
+              class="text-white text-lg font-medium animate-bounce flex flex-col items-center gap-2"
+
+            >
+
+              <i class="fas fa-hand-point-down text-2xl"></i>
+
+              <span>Click anywhere to start</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="absolute bottom-6 left-6 text-white/70 text-sm">
+
+          <div class="flex items-center gap-2">
+
+            <i class="fas fa-brain"></i>
+
+            <span>Powered by Gemini AI</span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="absolute bottom-6 right-6 text-white/70 text-sm">
+
+          <div class="flex items-center gap-2">
+
+            <i class="fas fa-hands"></i>
+
+            <span>Bahasa Isyarat Malaysia</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Main Interface -->
+
+      <div
+
+        id="main-interface"
+
+        class="hidden-section min-h-screen bg-gradient-to-b from-yellow-50 to-yellow-100 flex flex-col items-center py-8 px-4 md:px-8"
+
+      >
+
+        <!-- Header with Back Button -->
+
+        <div
+
+          class="w-full max-w-6xl flex items-center justify-between mb-8 md:mb-12"
+
+        >
+
+          <!-- Back Button -->
+
+          <button
+
+            id="back-btn"
+
+            class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/80 hover:bg-white text-yellow-700 font-bold text-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
+
+          >
+
+            <i class="fas fa-arrow-left"></i>
+
+            <span>Back to Home</span>
+
+          </button>
+
+
+
+          <!-- Title -->
+
+          <h1
+
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-700 tracking-wide drop-shadow-sm text-center flex-grow mx-4"
+
+          >
+
+            BIM BUDDY
+
+          </h1>
+
+
+
+          <!-- Settings/Info Button -->
+
+          <button
+
+            id="info-btn"
+
+            class="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 hover:bg-white text-yellow-700 shadow-md hover:shadow-lg transition-all duration-300"
+
+          >
+
+            <i class="fas fa-info text-xl"></i>
+
+          </button>
+
+        </div>
+
+
+
+        <!-- Connection Status -->
+
+        <div
+
+          id="connection-status"
+
+          class="mb-6 px-4 py-3 rounded-2xl bg-white/90 shadow-md border-l-4 border-yellow-400 max-w-6xl w-full hidden"
+
+        >
+
+          <div class="flex items-center justify-between">
+
+            <div class="flex items-center gap-3">
+
+              <div
+
+                id="status-indicator"
+
+                class="w-3 h-3 rounded-full bg-red-500 animate-pulse"
+
+              ></div>
+
+              <span id="status-text" class="font-semibold text-gray-700"
+
+                >Connecting to backend...</span
+
+              >
+
+            </div>
+
+            <button
+
+              id="retry-btn"
+
+              class="px-4 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-white font-semibold text-sm transition-colors"
+
+            >
+
+              Retry Connection
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Main Content -->
+
+        <div
+
+          class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+
+        >
+
+          <!-- Left Panel: Text Input -->
+
+          <div
+
+            class="bg-gradient-to-br from-cyan-300 to-cyan-400 rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-white/50 flex flex-col"
+
+          >
+
+            <div class="flex items-center justify-between mb-6">
+
+              <h2
+
+                class="text-3xl md:text-4xl font-bold text-white drop-shadow-lg flex items-center gap-3"
+
+              >
+
+                <i class="fas fa-keyboard"></i>
+
+                <span>Text Input</span>
+
+              </h2>
+
+              <div class="flex items-center gap-2">
+
+                <span class="text-white/90 text-sm font-semibold"
+
+                  >Auto-detect</span
+
+                >
+
+                <div id="auto-detect-toggle" class="checkbox-container">
+
+                  <div class="custom-checkbox checked"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <div
+
+              class="bg-gradient-to-b from-yellow-50 to-yellow-100 rounded-3xl flex-grow p-6 shadow-inner flex flex-col space-y-6"
+
+            >
+
+              <!-- Text Input Area -->
+
+              <div class="relative flex-grow">
+
+                <textarea
+
+                  id="text-input"
+
+                  class="w-full h-full min-h-[200px] md:min-h-[300px] bg-transparent resize-none outline-none text-gray-800 text-xl md:text-2xl font-semibold placeholder-gray-400 p-4 rounded-2xl border-2 border-yellow-200 focus:border-yellow-400 transition-colors"
+
+                  placeholder="Type Malay words here...&#10;Example: 'Saya', 'Terima Kasih', 'Apa Khabar'"
+
+                  rows="6"
+
+                ></textarea>
+
+                <div class="absolute bottom-4 right-4 text-gray-400 text-sm">
+
+                  <span id="char-count">0</span>/500
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Examples -->
+
+              <div class="space-y-3">
+
+                <div class="text-gray-600 font-medium flex items-center gap-2">
+
+                  <i class="fas fa-lightbulb text-yellow-500"></i>
+
+                  <span>Try these examples:</span>
+
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+
+                  <button
+
+                    class="example-btn px-4 py-2 rounded-full bg-yellow-200 hover:bg-yellow-300 text-gray-700 font-medium text-sm transition-colors shadow-sm"
+
+                  >
+
+                    Saya
+
+                  </button>
+
+                  <button
+
+                    class="example-btn px-4 py-2 rounded-full bg-yellow-200 hover:bg-yellow-300 text-gray-700 font-medium text-sm transition-colors shadow-sm"
+
+                  >
+
+                    Terima Kasih
+
+                  </button>
+
+                  <button
+
+                    class="example-btn px-4 py-2 rounded-full bg-yellow-200 hover:bg-yellow-300 text-gray-700 font-medium text-sm transition-colors shadow-sm"
+
+                  >
+
+                    Apa Khabar
+
+                  </button>
+
+                  <button
+
+                    class="example-btn px-4 py-2 rounded-full bg-yellow-200 hover:bg-yellow-300 text-gray-700 font-medium text-sm transition-colors shadow-sm"
+
+                  >
+
+                    Selamat Pagi
+
+                  </button>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Translate Button -->
+
+              <div class="pt-4 flex justify-center">
+
+                <button
+
+                  id="translate-btn"
+
+                  class="px-10 py-4 rounded-full font-bold text-xl md:text-2xl text-white shadow-lg transition-all duration-300 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 hover:shadow-xl active:scale-95 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed disabled:shadow-none"
+
+                  disabled
+
+                >
+
+                  <span class="flex items-center justify-center gap-3">
+
+                    <i class="fas fa-hands"></i>
+
+                    <span>Translate to BIM</span>
+
+                    <i class="fas fa-arrow-right"></i>
+
+                  </span>
+
+                </button>
+
+              </div>
+
+
+
+              <!-- Error Message -->
+
+              <div
+
+                id="error-message"
+
+                class="text-center text-red-500 font-medium text-sm hidden"
+
+              >
+
+                <i class="fas fa-exclamation-circle mr-2"></i>
+
+                <span id="error-text"></span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- Right Panel: Results -->
+
+          <div
+
+            class="bg-gradient-to-br from-cyan-300 to-cyan-400 rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-white/50 flex flex-col"
+
+          >
+
+            <h2
+
+              class="text-3xl md:text-4xl font-bold text-white drop-shadow-lg mb-6 flex items-center gap-3"
+
+            >
+
+              <i class="fas fa-images"></i>
+
+              <span>BIM Signs</span>
+
+            </h2>
+
+
+
+            <div
+
+              class="bg-gradient-to-b from-yellow-50 to-yellow-100 rounded-3xl flex-grow p-6 shadow-inner flex flex-col relative overflow-hidden"
+
+            >
+
+              <!-- Loading Overlay -->
+
+              <div
+
+                id="loading-overlay"
+
+                class="absolute inset-0 bg-yellow-50/95 backdrop-blur-sm flex flex-col items-center justify-center z-20 transition-all duration-300 hidden"
+
+              >
+
+                <div
+
+                  class="w-20 h-20 border-8 border-yellow-400 border-t-transparent rounded-full animate-spin mb-6"
+
+                ></div>
+
+                <p class="text-2xl font-bold text-yellow-600 mb-2">
+
+                  Translating...
+
+                </p>
+
+                <p class="text-gray-600 text-center max-w-md">
+
+                  Analyzing text with AI and searching for BIM signs
+
+                </p>
+
+                <div class="mt-6 text-gray-500 text-sm">
+
+                  <i class="fas fa-spinner animate-spin mr-2"></i>
+
+                  <span>This may take a few seconds</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Initial State -->
+
+              <div
+
+                id="initial-state"
+
+                class="flex flex-col items-center justify-center h-full text-center space-y-6 p-8"
+
+              >
+
+                <div class="text-8xl text-gray-300">
+
+                  <i class="fas fa-hands"></i>
+
+                </div>
+
+                <div>
+
+                  <h3 class="text-2xl font-bold text-gray-400 mb-2">
+
+                    Ready to Translate
+
+                  </h3>
+
+                  <p class="text-gray-500 max-w-md">
+
+                    Type Malay text on the left and click "Translate to BIM" to
+
+                    see Malaysian Sign Language gestures.
+
+                  </p>
+
+                </div>
+
+                <div class="flex items-center gap-4 text-gray-400 text-sm">
+
+                  <div class="flex items-center gap-2">
+
+                    <i class="fas fa-check-circle text-green-400"></i>
+
+                    <span>Real BIM signs</span>
+
+                  </div>
+
+                  <div class="flex items-center gap-2">
+
+                    <i class="fas fa-robot text-blue-400"></i>
+
+                    <span>AI-powered</span>
+
+                  </div>
+
+                  <div class="flex items-center gap-2">
+
+                    <i class="fas fa-bolt text-yellow-400"></i>
+
+                    <span>Fast results</span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Success Results -->
+
+              <div id="success-results" class="hidden w-full h-full">
+
+                <!-- Word List -->
+
+                <div
+
+                  id="word-list"
+
+                  class="mb-6 p-4 bg-white/80 rounded-2xl shadow-inner"
+
+                >
+
+                  <h4
+
+                    class="font-bold text-gray-700 mb-3 flex items-center gap-2"
+
+                  >
+
+                    <i class="fas fa-list text-yellow-500"></i>
+
+                    <span>Words Found:</span>
+
+                  </h4>
+
+                  <div id="words-container" class="flex flex-wrap gap-2">
+
+                    <!-- Words will be added here -->
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Main Image Display -->
+
+                <div
+
+                  id="main-image-container"
+
+                  class="flex-grow bg-white rounded-2xl shadow-lg overflow-hidden flex items-center justify-center p-4"
+
+                >
+
+                  <div class="text-center space-y-4">
+
+                    <div
+
+                      id="main-image-wrapper"
+
+                      class="relative w-full flex justify-center"
+
+                    >
+
+                      <img
+
+                        id="main-image"
+
+                        src=""
+
+                        alt="BIM Sign"
+
+                        class="max-w-full max-h-[300px] object-contain rounded-xl shadow-md"
+
+                        onerror="this.src='https://via.placeholder.com/400x300/67e8f9/000000?text=Image+Loading+Error'"
+
+                      />
+
+                      <div
+
+                        id="image-badge"
+
+                        class="absolute top-2 right-2 px-3 py-1 rounded-full text-xs font-bold shadow-sm hidden"
+
+                      >
+
+                        <i class="fas fa-robot mr-1"></i>
+
+                        <span>AI Generated</span>
+
+                      </div>
+
+                    </div>
+
+                    <div>
+
+                      <h4
+
+                        id="current-word"
+
+                        class="text-xl font-bold text-gray-800"
+
+                      ></h4>
+
+                      <p
+
+                        id="word-description"
+
+                        class="text-gray-600 text-sm mt-1"
+
+                      ></p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Navigation -->
+
+                <div
+
+                  id="image-navigation"
+
+                  class="mt-6 flex items-center justify-between hidden"
+
+                >
+
+                  <button
+
+                    id="prev-btn"
+
+                    class="px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold shadow-md transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+
+                  >
+
+                    <i class="fas fa-chevron-left mr-2"></i>
+
+                    Previous
+
+                  </button>
+
+
+
+                  <div class="text-gray-600 font-medium">
+
+                    <span id="current-index">1</span> of
+
+                    <span id="total-images">1</span>
+
+                  </div>
+
+
+
+                  <button
+
+                    id="next-btn"
+
+                    class="px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold shadow-md transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+
+                  >
+
+                    Next
+
+                    <i class="fas fa-chevron-right ml-2"></i>
+
+                  </button>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Error State -->
+
+              <div
+
+                id="error-state"
+
+                class="hidden flex flex-col items-center justify-center h-full text-center space-y-6 p-8"
+
+              >
+
+                <div class="text-8xl text-red-400">
+
+                  <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+
+                <div>
+
+                  <h3 class="text-2xl font-bold text-red-500 mb-2">
+
+                    Translation Failed
+
+                  </h3>
+
+                  <p id="error-details" class="text-gray-600 max-w-md">
+
+                    Could not translate the text. Please try again with
+
+                    different words.
+
+                  </p>
+
+                </div>
+
+                <button
+
+                  id="try-again-btn"
+
+                  class="px-6 py-3 rounded-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold shadow-md transition-colors"
+
+                >
+
+                  <i class="fas fa-redo mr-2"></i>
+
+                  Try Again
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Footer -->
+
+        <div class="mt-12 pt-8 border-t border-yellow-200 max-w-6xl w-full">
+
+          <div
+
+            class="flex flex-col md:flex-row items-center justify-between gap-6"
+
+          >
+
+            <div class="text-yellow-700 font-semibold opacity-75">
+
+              <div class="flex items-center gap-3">
+
+                <i class="fas fa-gem text-blue-500"></i>
+
+                <span>Powered by Gemini AI</span>
+
+              </div>
+
+              <div class="text-sm mt-1 opacity-60">
+
+                Malaysian Sign Language (BIM) Translator
+
+              </div>
+
+            </div>
+
+
+
+            <div class="flex items-center gap-6 text-yellow-700/70 text-sm">
+
+              <div class="flex items-center gap-2">
+
+                <i class="fas fa-server"></i>
+
+                <span id="backend-status" class="font-medium"
+
+                  >Backend: Checking...</span
+
+                >
+
+              </div>
+
+              <div class="flex items-center gap-2">
+
+                <i class="fas fa-database"></i>
+
+                <span id="dictionary-status" class="font-medium"
+
+                  >Dictionary: Loading...</span
+
+                >
+
+              </div>
+
+              <button
+
+                id="debug-btn"
+
+                class="px-4 py-2 rounded-full bg-yellow-100 hover:bg-yellow-200 text-yellow-700 text-xs font-bold transition-colors"
+
+              >
+
+                <i class="fas fa-bug mr-2"></i>
+
+                Debug Info
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <!-- JavaScript -->
+
+    <script>
+
+      // DOM Elements
+
+      const landingPage = document.getElementById("landing-page");
+
+      const mainInterface = document.getElementById("main-interface");
+
+      const backBtn = document.getElementById("back-btn");
+
+      const textInput = document.getElementById("text-input");
+
+      const translateBtn = document.getElementById("translate-btn");
+
+      const charCount = document.getElementById("char-count");
+
+      const errorMessage = document.getElementById("error-message");
+
+      const errorText = document.getElementById("error-text");
+
+
+
+      // Result elements
+
+      const loadingOverlay = document.getElementById("loading-overlay");
+
+      const initialState = document.getElementById("initial-state");
+
+      const successResults = document.getElementById("success-results");
+
+      const errorState = document.getElementById("error-state");
+
+      const wordsContainer = document.getElementById("words-container");
+
+      const mainImageWrapper = document.getElementById("main-image-wrapper");
+
+      const currentWord = document.getElementById("current-word");
+
+      const wordDescription = document.getElementById("word-description");
+
+      const imageNavigation = document.getElementById("image-navigation");
+
+      const prevBtn = document.getElementById("prev-btn");
+
+      const nextBtn = document.getElementById("next-btn");
+
+      const currentIndex = document.getElementById("current-index");
+
+      const totalImages = document.getElementById("total-images");
+
+
+
+      // Status elements
+
+      const connectionStatus = document.getElementById("connection-status");
+
+      const statusIndicator = document.getElementById("status-indicator");
+
+      const statusText = document.getElementById("status-text");
+
+      const retryBtn = document.getElementById("retry-btn");
+
+      const backendStatus = document.getElementById("backend-status");
+
+      const dictionaryStatus = document.getElementById("dictionary-status");
+
+      const debugBtn = document.getElementById("debug-btn");
+
+
+
+      // State
+
+      let currentResults = [];
+
+      let currentImageIndex = 0;
+
+      let backendAvailable = false;
+
+
+
+      // Known phrases that should stay together
+
+      const knownPhrases = [
+
+        "terima kasih",
+
+        "apa khabar",
+
+        "selamat pagi",
+
+        "selamat petang",
+
+        "selamat malam",
+
+        "selamat datang",
+
+        "terima kasih banyak",
+
+        "sama-sama",
+
+        "maafkan saya",
+
+        "tolong saya",
+
+        "saya cinta awak",
+
+        "awak nama apa",
+
+        "saya tidak faham",
+
+      ];
+
+
+
+      // Initialize
+
+      document.addEventListener("DOMContentLoaded", () => {
+
+        // Add event listeners
+
+        setupEventListeners();
+
+
+
+        // Check backend connection
+
+        checkBackendConnection();
+
+
+
+        // Update character count
+
+        updateCharCount();
+
+      });
+
+
+
+      function setupEventListeners() {
+
+        // Landing page to main interface
+
+        landingPage.addEventListener("click", () => {
+
+          landingPage.classList.add("hidden-section");
+
+          mainInterface.classList.remove("hidden-section");
+
+          textInput.focus();
+
+        });
+
+
+
+        // Back button
+
+        backBtn.addEventListener("click", () => {
+
+          mainInterface.classList.add("hidden-section");
+
+          landingPage.classList.remove("hidden-section");
+
+          resetInterface();
+
+        });
+
+
+
+        // Text input handling
+
+        textInput.addEventListener("input", () => {
+
+          updateCharCount();
+
+          const hasText = textInput.value.trim().length > 0;
+
+          translateBtn.disabled = !hasText;
+
+
+
+          // Clear errors when typing
+
+          if (hasText) {
+
+            hideError();
+
+          }
+
+        });
+
+
+
+        textInput.addEventListener("keydown", (e) => {
+
+          if (e.key === "Enter" && !e.shiftKey && !translateBtn.disabled) {
+
+            e.preventDefault();
+
+            handleTranslate();
+
+          }
+
+        });
+
+
+
+        // Translate button
+
+        translateBtn.addEventListener("click", handleTranslate);
+
+
+
+        // Example buttons
+
+        document.querySelectorAll(".example-btn").forEach((btn) => {
+
+          btn.addEventListener("click", () => {
+
+            textInput.value = btn.textContent;
+
+            textInput.dispatchEvent(new Event("input"));
+
+            textInput.focus();
+
+          });
+
+        });
+
+
+
+        // Image navigation
+
+        prevBtn.addEventListener("click", showPreviousImage);
+
+        nextBtn.addEventListener("click", showNextImage);
+
+
+
+        // Try again button
+
+        document
+
+          .getElementById("try-again-btn")
+
+          .addEventListener("click", () => {
+
+            errorState.classList.add("hidden");
+
+            initialState.classList.remove("hidden");
+
+            textInput.focus();
+
+          });
+
+
+
+        // Retry connection
+
+        retryBtn.addEventListener("click", checkBackendConnection);
+
+
+
+        // Debug button
+
+        debugBtn.addEventListener("click", showDebugInfo);
+
+
+
+        // Auto-detect toggle
+
+        document
+
+          .getElementById("auto-detect-toggle")
+
+          .addEventListener("click", (e) => {
+
+            const checkbox = e.currentTarget.querySelector(".custom-checkbox");
+
+            checkbox.classList.toggle("checked");
+
+          });
+
+
+
+        // Info button
+
+        document.getElementById("info-btn").addEventListener("click", () => {
+
+          alert(
+
+            "BIM Buddy\n\nA Malaysian Sign Language (BIM) translator powered by Google Gemini AI.\n\nEnter Malay text to see BIM signs and gestures."
+
+          );
+
+        });
+
+      }
+
+
+
+      function updateCharCount() {
+
+        const count = textInput.value.length;
+
+        charCount.textContent = count;
+
+        charCount.className = count > 500 ? "text-red-500" : "text-gray-400";
+
+      }
+
+
+
+      async function checkBackendConnection() {
+
+        showStatus("Connecting to backend...", "yellow");
+
+
+
+        try {
+
+          const response = await fetch("http://127.0.0.1:5000/health");
+
+          const data = await response.json();
+
+
+
+          if (data.status === "healthy") {
+
+            backendAvailable = true;
+
+            showStatus("Backend connected", "green");
+
+            backendStatus.textContent = `Backend: ✅ Connected`;
+
+            dictionaryStatus.textContent = `Dictionary: ${
+
+              data.dictionary_size || 0
+
+            } signs`;
+
+
+
+            setTimeout(() => {
+
+              connectionStatus.classList.add("hidden");
+
+            }, 3000);
+
+          }
+
+        } catch (error) {
+
+          backendAvailable = false;
+
+          showStatus("Backend unavailable", "red");
+
+          backendStatus.textContent = "Backend: ❌ Disconnected";
+
+          connectionStatus.classList.remove("hidden");
+
+        }
+
+      }
+
+
+
+      function showStatus(message, color) {
+
+        statusText.textContent = message;
+
+        statusIndicator.className = `w-3 h-3 rounded-full animate-pulse bg-${color}-500`;
+
+        connectionStatus.classList.remove("hidden");
+
+      }
+
+
+
+      // Check if text contains known phrases
+
+      function extractPhrases(text) {
+
+        const lowerText = text.toLowerCase();
+
+        const phrasesFound = [];
+
+        const remainingWords = lowerText.split(" ");
+
+
+
+        // First, check for known phrases
+
+        for (const phrase of knownPhrases) {
+
+          if (lowerText.includes(phrase)) {
+
+            phrasesFound.push(phrase);
+
+            // Remove phrase words from remaining words
+
+            const phraseWords = phrase.split(" ");
+
+            phraseWords.forEach((word) => {
+
+              const index = remainingWords.indexOf(word);
+
+              if (index !== -1) {
+
+                remainingWords.splice(index, 1);
+
+              }
+
+            });
+
+          }
+
+        }
+
+
+
+        // Add remaining individual words
+
+        const individualWords = remainingWords.filter(
+
+          (word) => word.trim().length > 0
+
+        );
+
+
+
+        return { phrases: phrasesFound, individualWords: individualWords };
+
+      }
+
+
+
+      async function handleTranslate() {
+
+        const text = textInput.value.trim();
+
+        if (!text || !backendAvailable) return;
+
+
+
+        setLoading(true);
+
+        resetResults();
+
+
+
+        try {
+
+          // First, check for phrases in the input
+
+          const { phrases, individualWords } = extractPhrases(text);
+
+
+
+          // Prepare results array
+
+          let allResults = [];
+
+
+
+          // Process phrases first
+
+          for (const phrase of phrases) {
+
+            try {
+
+              const response = await fetch("http://127.0.0.1:5000/translate", {
+
+                method: "POST",
+
+                headers: { "Content-Type": "application/json" },
+
+                body: JSON.stringify({ text: phrase }),
+
+              });
+
+
+
+              const data = await response.json();
+
+              if (data.results && data.results.length > 0) {
+
+                // For phrases, combine the results
+
+                const phraseResult = {
+
+                  word: phrase,
+
+                  found: data.results.some((r) => r.found),
+
+                  media: data.results[0]?.media || null,
+
+                  isPhrase: true,
+
+                };
+
+                allResults.push(phraseResult);
+
+              }
+
+            } catch (error) {
+
+              console.error(`Error translating phrase "${phrase}":`, error);
+
+            }
+
+          }
+
+
+
+          // Process individual words
+
+          for (const word of individualWords) {
+
+            // Skip if this word is already part of a processed phrase
+
+            const isInPhrase = phrases.some((phrase) => phrase.includes(word));
+
+            if (isInPhrase) continue;
+
+
+
+            try {
+
+              const response = await fetch("http://127.0.0.1:5000/translate", {
+
+                method: "POST",
+
+                headers: { "Content-Type": "application/json" },
+
+                body: JSON.stringify({ text: word }),
+
+              });
+
+
+
+              const data = await response.json();
+
+              if (data.results && data.results.length > 0) {
+
+                allResults.push(...data.results);
+
+              }
+
+            } catch (error) {
+
+              console.error(`Error translating word "${word}":`, error);
+
+            }
+
+          }
+
+
+
+          // If no results from phrase/word approach, try the original method
+
+          if (allResults.length === 0) {
+
+            const response = await fetch("http://127.0.0.1:5000/translate", {
+
+              method: "POST",
+
+              headers: { "Content-Type": "application/json" },
+
+              body: JSON.stringify({ text: text }),
+
+            });
+
+
+
+            const data = await response.json();
+
+            if (data.results && data.results.length > 0) {
+
+              currentResults = data.results;
+
+            } else {
+
+              showErrorState("No signs found for this sentence.");
+
+            }
+
+          } else {
+
+            currentResults = allResults;
+
+          }
+
+
+
+          if (currentResults.length > 0) {
+
+            displayResults();
+
+          } else {
+
+            showErrorState("No signs found for this sentence.");
+
+          }
+
+        } catch (error) {
+
+          showError(`Error: ${error.message}`);
+
+          setLoading(false);
+
+        }
+
+      }
+
+
+
+      function displayResults() {
+
+        setLoading(false);
+
+
+
+        if (currentResults.length === 0) {
+
+          showErrorState("No signs found for the input text");
+
+          return;
+
+        }
+
+
+
+        // Hide initial state, show success
+
+        initialState.classList.add("hidden");
+
+        successResults.classList.remove("hidden");
+
+
+
+        // Display words
+
+        displayWordList();
+
+
+
+        // Display first image
+
+        currentImageIndex = 0;
+
+        displayCurrentImage();
+
+
+
+        // Setup navigation
+
+        if (currentResults.length > 1) {
+
+          imageNavigation.classList.remove("hidden");
+
+          totalImages.textContent = currentResults.length;
+
+          updateNavigationButtons();
+
+        } else {
+
+          imageNavigation.classList.add("hidden");
+
+        }
+
+      }
+
+
+
+      function displayWordList() {
+
+        wordsContainer.innerHTML = "";
+
+
+
+        currentResults.forEach((result, index) => {
+
+          const wordEl = document.createElement("div");
+
+          wordEl.className = `px-4 py-2 rounded-full font-medium cursor-pointer transition-all ${
+
+            index === currentImageIndex
+
+              ? "bg-yellow-400 text-white shadow-md"
+
+              : "bg-white text-gray-700 hover:bg-yellow-100"
+
+          }`;
+
+
+
+          let statusIcon = "";
+
+          if (result.found) {
+
+            statusIcon = '<i class="fas fa-check ml-2 text-green-500"></i>';
+
+          } else {
+
+            statusIcon = '<i class="fas fa-times ml-2 text-red-500"></i>';
+
+          }
+
+
+
+          wordEl.innerHTML = `
+
+        ${result.word}
+
+        ${statusIcon}
+
+      `;
+
+
+
+          // Only make clickable if found
+
+          if (result.found) {
+
+            wordEl.style.cursor = "pointer";
+
+            wordEl.addEventListener("click", () => {
+
+              currentImageIndex = index;
+
+              displayCurrentImage();
+
+              updateWordListHighlight();
+
+              updateNavigationButtons();
+
+            });
+
+          } else {
+
+            wordEl.style.cursor = "default";
+
+            wordEl.style.opacity = "0.6";
+
+          }
+
+
+
+          wordsContainer.appendChild(wordEl);
+
+        });
+
+      }
+
+
+
+      function displayCurrentImage() {
+
+        const result = currentResults[currentImageIndex];
+
+        const wrapper = document.getElementById("main-image-wrapper");
+
+
+
+        // Clear the wrapper
+
+        wrapper.innerHTML = "";
+
+
+
+        if (result.found && result.media) {
+
+          const videoPath = result.media.video
+
+            ? result.media.video.replace(/^\/+/, "")
+
+            : null;
+
+          const imagePath = result.media.image
+
+            ? result.media.image.replace(/^\/+/, "")
+
+            : null;
+
+
+
+          // Create container for side-by-side display
+
+          const container = document.createElement("div");
+
+          container.className =
+
+            "flex flex-col md:flex-row gap-4 w-full items-center justify-center";
+
+
+
+          // Create image section
+
+          const imageSection = document.createElement("div");
+
+          imageSection.className = "flex-1 flex flex-col items-center";
+
+
+
+          const imageTitle = document.createElement("div");
+
+          imageTitle.className = "mb-2 font-bold text-yellow-600 text-sm";
+
+          imageTitle.textContent = "BIM Image Guide";
+
+
+
+          const imgContainer = document.createElement("div");
+
+          imgContainer.className =
+
+            "bg-gray-50 rounded-xl p-2 border border-gray-200 w-full max-w-xs";
+
+
+
+          if (imagePath) {
+
+            const imgEl = document.createElement("img");
+
+            imgEl.src = `http://127.0.0.1:5000/${imagePath}`;
+
+            imgEl.className =
+
+              "w-full h-auto max-h-[250px] object-contain rounded-lg";
+
+            imgEl.alt = `BIM Image for ${result.word}`;
+
+            imgEl.onerror = function () {
+
+              console.error("Image failed to load:", this.src);
+
+              this.src =
+
+                "https://via.placeholder.com/300x200/67e8f9/000000?text=Image+Not+Found";
+
+              imgContainer.innerHTML = `
+
+            <div class="text-center p-4">
+
+              <i class="fas fa-image text-gray-300 text-3xl mb-2"></i>
+
+              <p class="text-gray-500 text-sm">Image not available</p>
+
+            </div>
+
+          `;
+
+            };
+
+            imgContainer.appendChild(imgEl);
+
+          } else {
+
+            imgContainer.innerHTML = `
+
+          <div class="text-center p-6">
+
+            <i class="fas fa-image text-gray-300 text-4xl mb-2"></i>
+
+            <p class="text-gray-500 text-sm">No image available</p>
+
+          </div>
+
+        `;
+
+          }
+
+
+
+          imageSection.appendChild(imageTitle);
+
+          imageSection.appendChild(imgContainer);
+
+
+
+          // Create video section
+
+          const videoSection = document.createElement("div");
+
+          videoSection.className = "flex-1 flex flex-col items-center";
+
+
+
+          const videoTitle = document.createElement("div");
+
+          videoTitle.className = "mb-2 font-bold text-yellow-600 text-sm";
+
+          videoTitle.textContent = "BIM Video Guide";
+
+
+
+          const videoContainer = document.createElement("div");
+
+          videoContainer.className =
+
+            "bg-gray-50 rounded-xl p-2 border border-gray-200 w-full max-w-xs";
+
+
+
+          if (videoPath) {
+
+            const videoEl = document.createElement("video");
+
+            videoEl.src = `http://127.0.0.1:5000/${videoPath}`;
+
+            videoEl.className =
+
+              "w-full h-auto max-h-[250px] object-contain rounded-lg";
+
+            videoEl.controls = true;
+
+            videoEl.autoplay = true;
+
+            videoEl.loop = true;
+
+            videoEl.muted = true; // Muted for autoplay
+
+            videoEl.playsInline = true; // For mobile
+
+
+
+            videoEl.onerror = function () {
+
+              console.error("Video failed to load:", this.src);
+
+              videoContainer.innerHTML = `
+
+            <div class="text-center p-6">
+
+              <i class="fas fa-video text-gray-300 text-4xl mb-2"></i>
+
+              <p class="text-gray-500 text-sm">Video not available</p>
+
+            </div>
+
+          `;
+
+            };
+
+
+
+            videoContainer.appendChild(videoEl);
+
+          } else {
+
+            videoContainer.innerHTML = `
+
+          <div class="text-center p-6">
+
+            <i class="fas fa-video text-gray-300 text-4xl mb-2"></i>
+
+            <p class="text-gray-500 text-sm">No video available</p>
+
+          </div>
+
+        `;
+
+          }
+
+
+
+          videoSection.appendChild(videoTitle);
+
+          videoSection.appendChild(videoContainer);
+
+
+
+          // Add both sections to container
+
+          container.appendChild(imageSection);
+
+          container.appendChild(videoSection);
+
+
+
+          // Add container to wrapper
+
+          wrapper.appendChild(container);
+
+
+
+          currentWord.textContent = result.word.toUpperCase();
+
+          wordDescription.textContent =
+
+            result.media.translation || "BIM Sign Guide";
+
+        } else {
+
+          // Word not found case
+
+          wrapper.innerHTML = `
+
+        <div class="text-center p-8">
+
+          <div class="text-6xl text-gray-300 mb-4">
+
+            <i class="fas fa-question-circle"></i>
+
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-400 mb-2">Sign Not Found</h3>
+
+          <p class="text-gray-500 mb-4">No BIM sign found for "${
+
+            result.word
+
+          }"</p>
+
+          <div class="bg-gray-100 rounded-xl p-4 max-w-md mx-auto">
+
+            <p class="text-gray-600 text-sm">
+
+              <i class="fas fa-info-circle text-yellow-500 mr-2"></i>
+
+              ${
+
+                result.isPhrase ? "This phrase is" : "This word is"
+
+              } not in our BIM dictionary yet.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      `;
+
+          currentWord.textContent = result.word;
+
+          wordDescription.textContent = result.isPhrase
+
+            ? "Phrase not found in dictionary"
+
+            : "Word not found in dictionary";
+
+        }
+
+
+
+        currentIndex.textContent = currentImageIndex + 1;
+
+        updateWordListHighlight();
+
+      }
+
+
+
+      function updateWordListHighlight() {
+
+        const wordElements = wordsContainer.querySelectorAll("div");
+
+        wordElements.forEach((el, index) => {
+
+          if (index === currentImageIndex) {
+
+            el.className =
+
+              "px-4 py-2 rounded-full font-medium cursor-pointer transition-all bg-yellow-400 text-white shadow-md";
+
+          } else {
+
+            const result = currentResults[index];
+
+            if (result.found) {
+
+              el.className =
+
+                "px-4 py-2 rounded-full font-medium cursor-pointer transition-all bg-white text-gray-700 hover:bg-yellow-100";
+
+              el.style.opacity = "1";
+
+            } else {
+
+              el.className =
+
+                "px-4 py-2 rounded-full font-medium transition-all bg-gray-100 text-gray-400";
+
+              el.style.opacity = "0.6";
+
+            }
+
+          }
+
+        });
+
+      }
+
+
+
+      function showPreviousImage() {
+
+        if (currentImageIndex > 0) {
+
+          currentImageIndex--;
+
+          displayCurrentImage();
+
+          updateNavigationButtons();
+
+        }
+
+      }
+
+
+
+      function showNextImage() {
+
+        if (currentImageIndex < currentResults.length - 1) {
+
+          currentImageIndex++;
+
+          displayCurrentImage();
+
+          updateNavigationButtons();
+
+        }
+
+      }
+
+
+
+      function updateNavigationButtons() {
+
+        prevBtn.disabled = currentImageIndex === 0;
+
+        nextBtn.disabled = currentImageIndex === currentResults.length - 1;
+
+      }
+
+
+
+      function setLoading(isLoading) {
+
+        if (isLoading) {
+
+          loadingOverlay.classList.remove("hidden");
+
+          translateBtn.disabled = true;
+
+          textInput.disabled = true;
+
+        } else {
+
+          loadingOverlay.classList.add("hidden");
+
+          translateBtn.disabled = textInput.value.trim().length === 0;
+
+          textInput.disabled = false;
+
+        }
+
+      }
+
+
+
+      function resetResults() {
+
+        successResults.classList.add("hidden");
+
+        errorState.classList.add("hidden");
+
+        initialState.classList.add("hidden");
+
+        currentResults = [];
+
+        wordsContainer.innerHTML = "";
+
+      }
+
+
+
+      function showError(message) {
+
+        errorText.textContent = message;
+
+        errorMessage.classList.remove("hidden");
+
+
+
+        // Auto-hide after 5 seconds
+
+        setTimeout(() => {
+
+          hideError();
+
+        }, 5000);
+
+      }
+
+
+
+      function hideError() {
+
+        errorMessage.classList.add("hidden");
+
+      }
+
+
+
+      function showErrorState(message) {
+
+        setLoading(false);
+
+        successResults.classList.add("hidden");
+
+        errorState.classList.remove("hidden");
+
+        document.getElementById("error-details").textContent = message;
+
+      }
+
+
+
+      function resetInterface() {
+
+        textInput.value = "";
+
+        translateBtn.disabled = true;
+
+        resetResults();
+
+        initialState.classList.remove("hidden");
+
+        hideError();
+
+        updateCharCount();
+
+      }
+
+
+
+      function showDebugInfo() {
+
+        const info = {
+
+          backend: backendAvailable ? "Connected" : "Disconnected",
+
+          resultsCount: currentResults.length,
+
+          currentIndex: currentImageIndex,
+
+          inputText: textInput.value,
+
+          results: currentResults,
+
+        };
+
+
+
+        console.log("Debug Info:", info);
+
+        alert(
+
+          `Debug Information:\n\nBackend: ${info.backend}\nResults: ${
+
+            info.resultsCount
+
+          }\nCurrent: ${
+
+            info.currentIndex + 1
+
+          }\n\nCheck console for full details.`
+
+        );
+
+      }
+
+    </script>
+
+  </body>
+
+</html>
