@@ -2,7 +2,7 @@ import os
 import google.generativeai as genai
 
 # Paste your key here for the test
-os.environ["GEMINI_API_KEY"] = "AIzaSyBnyzg5DIqhGpAH9JfsuivAReU33fNFlHw"
+os.environ["GEMINI_API_KEY"] = "AIzaSyCVA9LarBnRuk0JKuRCpC7GV2E7Z4lccZk"
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 print("Checking available models...")
